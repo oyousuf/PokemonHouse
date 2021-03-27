@@ -1,0 +1,39 @@
+#Rooms
+room Hall
+room Kitchen
+room living_room
+room Bedroom
+room Bathroom
+room Garage
+room Laundry
+room Pantry
+room Library 
+
+#Doors
+door up1-down closed Bedroom Library
+door down-up1 closed Library Bedroom
+door up2-down open Bedroom Hall
+door down-up2 open Hall Bedroom
+door right-left locked Bedroom Bathroom
+door left-right locked Bathroom Bedroom
+door right-left locked Bathroom Garage
+door left-right locked Garage Bathroom
+door right-left open Library Hall
+door left-right open Hall Library
+door up-down closed Hall Laundry
+door down-up closed Laundry Hall
+door right-left open Hall Kitchen
+door left-right open Kitchen Hall
+door up-down locked Kitchen Pantry
+door down-up locked Pantry Kitchen
+door left-right locked Laundry Living
+door right-left locked Living Laundry
+
+#Items
+item key Living USE unlock
+item carpet Living MOVE
+item statue_of_Aphrodite Library STATIONARY
+item teleporter Garage USE teleport
+
+#Starting position 
+start Bedroom
