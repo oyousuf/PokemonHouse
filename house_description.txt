@@ -1,39 +1,40 @@
 #Rooms
-room Hall
-room Kitchen
-room living_room
-room Bedroom
-room Bathroom
-room Garage
-room Laundry
-room Pantry
-room Library 
+room Hall: This is the main Hall - There is a door up, a door to the left, a door to the right, and a door down.
+room Kitchen: This is the Kitchen - There is a door to the left and a door up.
+room Living: This is the Living Room - There is a carpet on the floor and a door to the right.
+room Bedroom: This is your Bedroom - There are 2 doors up and a door to the right.
+room Bathroom: This is the Bathroom - There is a door to the left and a door to the right.
+room Garage: This is the Garage - There is a door to the left and a teleporter(!)
+room Laundry: This is the Laundry Room - There is a door to the left and a door down.
+room Pantry: You've done it! You found Pikachu!
+room Library: This is the Library - There is a door to the right, a door down, and a statue of Aphrodite, the Greek goddess of Love.
 
 #Doors
-door up1-down closed Bedroom Library
-door down-up1 closed Library Bedroom
-door up2-down open Bedroom Hall
-door down-up2 open Hall Bedroom
-door right-left locked Bedroom Bathroom
-door left-right locked Bathroom Bedroom
-door right-left locked Bathroom Garage
-door left-right locked Garage Bathroom
-door right-left open Library Hall
-door left-right open Hall Library
-door up-down closed Hall Laundry
-door down-up closed Laundry Hall
-door right-left open Hall Kitchen
-door left-right open Kitchen Hall
-door up-down locked Kitchen Pantry
-door down-up locked Pantry Kitchen
-door left-right locked Laundry Living
-door right-left locked Living Laundry
+door up1 down closed Bedroom Library 
+door down up1 closed Library Bedroom
+door up2 down open Bedroom Hall
+door down up2 open Hall Bedroom
+door right left locked Bedroom Bathroom
+door left right locked Bathroom Bedroom
+door right left locked Bathroom Garage
+door left right locked Garage Bathroom
+door right left open Library Hall
+door left right open Hall Library
+door up down closed Hall Laundry
+door down up closed Laundry Hall
+door right left open Hall Kitchen
+door left right open Kitchen Hall
+door up down locked Kitchen Pantry
+door down up locked Pantry Kitchen
+door left right locked Laundry Living
+door right left locked Living Laundry
 
 #Items
 item key Living USE unlock
 item carpet Living MOVE
 item statue_of_Aphrodite Library STATIONARY
-item teleporter Garage USE teleport
+item teleporter Garage USE shake
+item special_stone Bathroom MOVE
 
 #Starting position 
 start Bedroom
