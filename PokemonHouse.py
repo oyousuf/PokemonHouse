@@ -1,10 +1,10 @@
 #def get_room() was made to parse the house description and put them in variables we can pass into classes later
-def get_room():
+def start():
     room_num = {}  # format will be: {#number : {Room Name: Room Description}, {}, {}, etc.}
     room_description = {}  # format will be: {Room Name: Room Description}
     doors = {}  # format will be: {starting_room : [[direction, end_room, door status], [direction, end_room, door status]]}
-    items = {}  # format wil be: {item name : [room location, type of item, optional command]} 'MOVE']}
-
+    items = {}  # format will be: {item name : [room location, type of item, optional command]} 'MOVE']}
+    item_description = {}  # format will be: {item name : item description}
     with open("Users/User/PokemonHouse/house_description.txt") as file:  # read in house_description file
         for line in file:  # iterate over each line
             if not line.startswith('#') and not line.startswith('\n'):  # exclude parsing of # or new lines
@@ -29,12 +29,15 @@ def get_room():
 
                 # parse items
                 elif line.startswith('item'):
+                    temp = line.partition(':')  # to preserve item description (last index)
+
+                    line = temp[0]  # everything before item description is in index[0]
                     line = line.split()  # split into list
-                    line.pop(0)  # get rid of word item
-                    item_name = line[0]  # save name of item
-                    line.pop(0)  # get rid of name of item
-                    items[
-                        item_name] = line  # in dict - name of item is assigned as KEY: list of it's characteristics is VALUE. ex.: 'key': ['Living', 'USE', 'unlock']
+                    item_name = line[1]  # save name of item (which is at index[1])
+                    items[item_name] = line[
+                        2]  # in dict - name of item is assigned as KEY: list of it's characteristics is VALUE. ex.: 'key': ['Living', 'USE', 'unlock']
+
+                    item_description[item_name] = temp[2].strip()  # store description into dict.
 
     # to send inner dict of room name/room description as value of outter dict, which has int as keys
     room_count = 0
@@ -59,7 +62,7 @@ def get_room():
                     # now we have: 1) rooms with IDs & their names with descriptions 2) room names with description, 3) doors in each room with possible directions, neighboring rooms, status of door
                 # 4) items with their location, type and optional commands 5) default location of items
     print(
-        f'room number - {room_num}\n\nroom description - {room_description}\n\ndoors - {doors}\n\nitems - {items}\n\ndefault item locations - {default_items_in_rooms}\n')
+        f'room number - {room_num}\n\nroom description - {room_description}\n\ndoors - {doors}\n\nitems - {items}\n\ndefault item locations - {default_items_in_rooms}\n\nitem descriptions - {item_description}')
 
 
 class Room:

@@ -30,11 +30,11 @@ door left right locked Laundry Living
 door right left locked Living Laundry
 
 #Items
-item key Living USE unlock
-item carpet Living MOVE
-item statue_of_Aphrodite Library STATIONARY
-item teleporter Garage USE shake
-item special_stone Bathroom MOVE
+item key Living USE unlock: A key that can unlock a specially locked door.
+item carpet Living MOVE: A beautiful, yet heavy, Mashad carpet laying on the floor.
+item statue_of_Aphrodite Library STATIONARY: A marble statue of the ancient Greek goddess Aphrodite.
+item teleporter Garage USE shake: An unstable device that should or shouldn't be handled with care.
+item special_stone Bathroom MOVE: A shiny stone with a lightning bolt on it.
 
 #Starting position 
 start Bedroom
