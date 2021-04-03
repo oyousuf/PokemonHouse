@@ -1,0 +1,154 @@
+---
+Rooms:
+ - name : Hall
+   description : Hall. right-kitchen, left-library, up-laundry
+ - name : Kitchen 
+   description : This is Kitchen. up-pantry left-hall
+ - name : Living_room
+   description : This is living room. right- laundry
+ - name : Bedroom
+   description : This is bedroom. up1- library, up2 Hall right-Bathroom 
+ - name : Bathroom
+   description : This is bathroom. left-bedroom, right-garage 
+ - name : Garage
+   description : This is garage. left-bathroom 
+ - name : Laundry
+   description : This is laundry room. left-living, down-hall 
+ - name : Pantry
+   description : This is pantry. down-kitchen
+ - name : Library
+   description : This is library. right-hall
+
+---
+Doors:
+ - id : 1
+   from_ : up1 
+   to : down
+   state : closed
+   from_room : Bedroom
+   to_room : Library
+ - id : 2
+   from_ : down
+   to : up1
+   state : closed
+   from_room : Library
+   to_room : Bedroom
+ - id : 3
+   from_ : up2
+   to : down
+   state : open
+   from_room : Bedroom
+   to_room : Hall
+ - id : 4
+   from_ : down
+   to : up2
+   state : open
+   from_room : Hall
+   to_room : Bedroom
+ - id : 5
+   from_ : right
+   to : left
+   state : locked
+   from_room : Bedroom
+   to_room : Bathroom
+ - id : 6
+   from_ : left
+   to : right
+   state : locked
+   from_room : Bathroom
+   to_room : Bedroom
+ - id : 7
+   from_ : right
+   to : left
+   state : locked
+   from_room : Bathroom
+   to_room : Garage
+ - id : 8
+   from_ : left
+   to : right
+   state : locked
+   from_room : Garage
+   to_room : Bathroom
+ - id : 9
+   from_ : right
+   to : left
+   state : open
+   from_room : Library
+   to_room : Hall
+ - id : 10
+   from_ : left
+   to : right
+   state : open
+   from_room : Hall
+   to_room : Library
+ - id : 11
+   from_ : up
+   to : down
+   state : closed
+   from_room : Hall
+   to_room : Laundry
+ - id : 12
+   from_ : down
+   to : up
+   state : closed
+   from_room : Laundry
+   to_room : Hall
+ - id : 13
+   from_ : right
+   to : left
+   state : open
+   from_room : Hall
+   to_room : Kitchen
+ - id : 14
+   from_ : left
+   to : right
+   state : open
+   from_room : Kitchen
+   to_room : Hall
+ - id : 15
+   from_ : up
+   to : down
+   state : locked
+   from_room : Kitchen
+   to_room : Pantry
+ - id : 16
+   from_ : down
+   to : up
+   state : locked
+   from_room : Pantry
+   to_room : Kitchen
+ - id : 17
+   from_ : left
+   to : right
+   state : locked
+   from_room : Laundry
+   to_room : Living_room
+ - id : 18
+   from_ : right
+   to : left
+   state : locked
+   from_room : Living_room
+   to_room : Laundry
+
+
+---
+Items:
+ - name : key
+   description : This is a key to open a door. 
+   place: Living_room
+   usage : USE
+   action : unlock 
+ - name : carpet
+   description : This is a carpet. There is something under the carpet. 
+   place: Living_room
+   usage : MOVE 
+   action : None
+
+---
+
+Starting_position:
+ - place : Bedroom 
+
+
+
+

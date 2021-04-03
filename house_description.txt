@@ -1,19 +1,19 @@
 #Rooms
-room Hall
-room Kitchen
-room living_room
-room Bedroom
-room Bathroom
-room Garage
-room Laundry
-room Pantry
-room Library 
+room Hall This is main Hall. 
+room Kitchen This is Kitchen. Easter Eggs are on the table. 
+room living_room This is living room. TV is still on. 
+room Bedroom This is bedroom. Bed looks messy. 
+room Bathroom This is bathroom.
+room Garage This is garage. 
+room Laundry This is laundry room. 
+room Pantry This is pantry. 
+room Library This is library. 
 
 #Doors
 door up1-down closed Bedroom Library
 door down-up1 closed Library Bedroom
 door up2-down open Bedroom Hall
-door down-up2 open Hall Bedroom
+door down-up2 open Hall Bedroom 
 door right-left locked Bedroom Bathroom
 door left-right locked Bathroom Bedroom
 door right-left locked Bathroom Garage
