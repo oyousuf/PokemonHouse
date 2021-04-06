@@ -1,141 +1,87 @@
 ---
 Rooms:
- - name : Hall
-   description : Hall. right-kitchen, left-library, up-laundry
- - name : Kitchen 
-   description : This is Kitchen. up-pantry left-hall
+ - name : Kitchen
+   description : This is the kitchen, there is 1 door to the south and to the west.
  - name : Living_room
-   description : This is living room. right- laundry
+   description : This is the Living Room, there is a door to the west and a carpet on the floor. It seems like there is something under the carpet. 
  - name : Bedroom
-   description : This is bedroom. up1- library, up2 Hall right-Bathroom 
+   description : This is the Bedroom, there are a door to the east. 
  - name : Bathroom
-   description : This is bathroom. left-bedroom, right-garage 
- - name : Garage
-   description : This is garage. left-bathroom 
- - name : Laundry
-   description : This is laundry room. left-living, down-hall 
+   description : This is the Bathroom, there is a door to the east, a door to the west, and north. There is a statue of Aphrodite.
  - name : Pantry
-   description : This is pantry. down-kitchen
+   description : You did it! You found Pikachu!
  - name : Library
-   description : This is library. right-hall
+   description : This is the Library, there is a door to the east, and a key on the ground.
 
 ---
 Doors:
  - id : 1
-   from_ : up1 
-   to : down
-   state : closed
+   from_ : east 
+   to : west
+   state : open
    from_room : Bedroom
-   to_room : Library
+   to_room : Bathroom
  - id : 2
-   from_ : down
-   to : up1
-   state : closed
-   from_room : Library
+   from_ : west
+   to : east
+   state : open
+   from_room : Bathroom
    to_room : Bedroom
  - id : 3
-   from_ : up2
-   to : down
+   from_ : north
+   to : south
    state : open
-   from_room : Bedroom
-   to_room : Hall
+   from_room : Bathroom
+   to_room : Kithchen
  - id : 4
-   from_ : down
-   to : up2
+   from_ : south
+   to : north
    state : open
-   from_room : Hall
-   to_room : Bedroom
+   from_room : Kitchen
+   to_room : Bathroom
  - id : 5
-   from_ : right
-   to : left
-   state : locked
-   from_room : Bedroom
-   to_room : Bathroom
- - id : 6
-   from_ : left
-   to : right
-   state : locked
-   from_room : Bathroom
-   to_room : Bedroom
- - id : 7
-   from_ : right
-   to : left
-   state : locked
-   from_room : Bathroom
-   to_room : Garage
- - id : 8
-   from_ : left
-   to : right
-   state : locked
-   from_room : Garage
-   to_room : Bathroom
- - id : 9
-   from_ : right
-   to : left
-   state : open
-   from_room : Library
-   to_room : Hall
- - id : 10
-   from_ : left
-   to : right
-   state : open
-   from_room : Hall
-   to_room : Library
- - id : 11
-   from_ : up
-   to : down
+   from_ : east
+   to : west
    state : closed
-   from_room : Hall
-   to_room : Laundry
- - id : 12
-   from_ : down
-   to : up
-   state : closed
-   from_room : Laundry
-   to_room : Hall
- - id : 13
-   from_ : right
-   to : left
-   state : open
-   from_room : Hall
-   to_room : Kitchen
- - id : 14
-   from_ : left
-   to : right
-   state : open
-   from_room : Kitchen
-   to_room : Hall
- - id : 15
-   from_ : up
-   to : down
-   state : locked
-   from_room : Kitchen
-   to_room : Pantry
- - id : 16
-   from_ : down
-   to : up
-   state : locked
-   from_room : Pantry
-   to_room : Kitchen
- - id : 17
-   from_ : left
-   to : right
-   state : locked
-   from_room : Laundry
+   from_room : Bathroom
    to_room : Living_room
- - id : 18
-   from_ : right
-   to : left
+ - id : 6
+   from_ : west
+   to : east
+   state : closed
+   from_room : Living_room
+   to_room : Bathroom
+ - id : 7
+   from_ : north
+   to : south
    state : locked
    from_room : Living_room
-   to_room : Laundry
+   to_room : Pantry
+ - id : 8
+   from_ : south
+   to : north
+   state : locked
+   from_room : Pantry
+   to_room : Living_room
+ - id : 9
+   from_ : west
+   to : east
+   state : closed
+   from_room : Kitchen
+   to_room : Library
+ - id : 10
+   from_ : east
+   to : west
+   state : closed
+   from_room : Library
+   to_room : Kitchen
 
 
 ---
 Items:
  - name : key
    description : This is a key to open a door. 
-   place: Living_room
+   place: Library
    usage : USE
    action : unlock 
  - name : carpet
@@ -143,6 +89,17 @@ Items:
    place: Living_room
    usage : MOVE 
    action : None
+ - name : statue
+   description : A marbel statue of the ancient Greek goddess of Love, Aphrodite. 
+   place: Bathroom
+   usage : STATIONARY
+   action : NONE 
+ - name : stone
+   description : A shiny stone that has a lightning bolt on it. 
+   place: Kitchen
+   usage : TAKE
+   action : NONE
+
 
 ---
 

@@ -1,39 +1,32 @@
 #Rooms
-room Hall This is main Hall. 
-room Kitchen This is Kitchen. Easter Eggs are on the table. 
-room living_room This is living room. TV is still on. 
-room Bedroom This is bedroom. Bed looks messy. 
-room Bathroom This is bathroom.
-room Garage This is garage. 
-room Laundry This is laundry room. 
-room Pantry This is pantry. 
-room Library This is library. 
+room Kitchen: This is the Kitchen - There are 2 doors in this room, one south and one west.
+room Living: This is the Living Room - There 2 doors in this room, one west and one north.
+room Bathroom: This is the Bathroom - There are 3 doors in this room, one west , one north, and one east.
+room Library: This is the Library - There are 2 doors in this room, one east and one south.
+room Bedroom: This is your Bedroom - There are 2 doors in this room, one east and one north.
+room Pantry: You've done it! You found Pikachu!!
+
 
 #Doors
-door up1-down closed Bedroom Library
-door down-up1 closed Library Bedroom
-door up2-down open Bedroom Hall
-door down-up2 open Hall Bedroom 
-door right-left locked Bedroom Bathroom
-door left-right locked Bathroom Bedroom
-door right-left locked Bathroom Garage
-door left-right locked Garage Bathroom
-door right-left open Library Hall
-door left-right open Hall Library
-door up-down closed Hall Laundry
-door down-up closed Laundry Hall
-door right-left open Hall Kitchen
-door left-right open Kitchen Hall
-door up-down locked Kitchen Pantry
-door down-up locked Pantry Kitchen
-door left-right locked Laundry Living
-door right-left locked Living Laundry
+door east west open Bedroom Bathroom 
+door west east open Bathroom Bedroom
+door north south closed Bedroom Library
+door south north closed Library Bedroom
+door north south open Bathroom Kitchen
+door south north open Kitchen Bathroom
+door east west closed Bathroom Living
+door west east closed Living Bathroom
+door north south locked Living Pantry
+door south north locked Pantry Living
+door west east closed Kitchen Library
+door east west closed Library Kitchen
 
 #Items
-item key Living USE unlock
-item carpet Living MOVE
-item statue_of_Aphrodite Library STATIONARY
-item teleporter Garage USE teleport
+item key Library USE unlock: A key that can unlock a specially locked door.
+item carpet Bedroom MOVE: A beautiful, yet heavy, Mashad carpet laying on the floor.
+item statue Bathroom STATIONARY: A marble statue of the ancient Greek goddess Aphrodite.
+item stone Kitchen MOVE: A shiny stone with a lightning bolt on it.
+item teleporter Living USE shake: An unstable device that may have adverse effects if shaken.
 
 #Starting position 
 start Bedroom

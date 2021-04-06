@@ -1,0 +1,194 @@
+(nlp) C:\Users\wk789\Documents\school\UU\advancedprogramming\lab5\PokemonHouse>python PokemonHouse.py house_description.txt
+
+
+                                      ,'    _.----.        ____         ,'  _\   ___    ___     ____
+_,-'       `.     |    |  /`.   \,-'    |   \  /   |   |    \  |`.
+\      __    \    '-.  | /   `.  ___    |    \/    |   '-.   \ |  |
+ \.    \ \   |  __  |  |/    ,','_  `.  |          | __  |    \|  |
+   \    \/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |
+    \     ,-'/  /   \    ,'   | \/ / ,`.|         /  /   \  |     |
+     \    \ |   \_/  |   `-.  \    `'  /|  |    ||   \_/  | |\    |
+      \    \ \      /       `-.`.___,-' |  |\  /| \      /  | |   |
+       \    \ `.__,'|  |`-._    `|      |__| \/ |  `.__,'|  | |   |
+        \_.-'       |__|    `-._ |              '-.|     '-.| |   |
+                                `'                            '-._|
+Welcome to the Pokemon House! Your job is to find your missing Pikachu! Type "commands" for general help.
+
+This is your Bedroom - There are 2 doors in this room, one east and one north. Item(s) in this room: ['carpet'].
+(Cmd) show
+This is your Bedroom - There are 2 doors in this room, one east and one north. Item(s) in this room: ['carpet'].
+(Cmd) info carpet
+A beautiful, yet heavy, Mashad carpet laying on the floor.
+(Cmd) take carpet
+You have added carpet to your inventory!
+(Cmd) go south
+That is not a direction in this room.
+(Cmd) go north
+This door is closed and needs to be opened.
+(Cmd) open north
+The door has been opened. You can now enter with the 'go' command.
+(Cmd) go north
+This is the Library - There are 2 doors in this room, one east and one south. Item(s) in this room: ['key'].
+(Cmd) commands
+
+Here are the following commands & directions you can use to help you find Pikachu:
+'go DIR' - to move to the room in direction DIR, if there is an open door in that direction
+'take ITEM' - let's you take the item ITEM if it's in the same room as you, and the ITEM isn't STATIONARY. The ITEM will be held by you, and no longer available in the room.
+'release ITEM' - let's you release item ITEM, if it's being held. The ITEM will then be in the room you're currently in, and won't be held by you.
+'open DIR' - opens the door in direction DIR in the current room, if there's such a door, and if that door is closed.
+'show' - describes the room you're currently in, i.e., gives the room's name, lists the doors, and the available items, if any.
+'commands' - lists all available commands in the game
+'holding' - lists all the items you're currently holding.
+'quit' - ends the game
+'info ITEM' - provides you with a describe of an item in the room or in your inventory
+'shake' - to violently shake a certain *ITEM*, maybe something will happen ;)
+'unlock DIR' - to unlock a specially locked door
+
+'north' - to move north
+'south' - to move south
+'east' - to move east
+'west' - to move west
+(Cmd) help
+
+Documented commands (type help <topic>):
+========================================
+help
+
+Undocumented commands:
+======================
+commands  go  holding  info  open  quit  release  shake  show  take  unlock
+
+(Cmd) take key
+You have added key to your inventory!
+(Cmd) holding
+You have the following item(s) in your inventory: ['carpet', 'key']
+(Cmd) release carpet
+You dropped the carpet in this room. The room now has the following item(s):
+['carpet']
+You have the following item(s) in your inventory: ['key']
+(Cmd) show
+This is the Library - There are 2 doors in this room, one east and one south. Item(s) in this room: ['carpet'].
+(Cmd) go east
+This door is closed and needs to be opened.
+(Cmd) open east
+The door has been opened. You can now enter with the 'go' command.
+(Cmd) go east
+This is the Kitchen - There are 2 doors in this room, one south and one west. Item(s) in this room: ['stone'].
+(Cmd) take stone
+You have added stone to your inventory!
+(Cmd) show
+This is the Kitchen - There are 2 doors in this room, one south and one west. Item(s) in this room: [].
+(Cmd) info stone
+A shiny stone with a lightning bolt on it.
+(Cmd) go south
+This is the Bathroom - There are 3 doors in this room, one west , one north, and one east. Item(s) in this room: ['statue'].
+(Cmd) take statue
+You cannot take that item. It is stationary.
+(Cmd) info statue
+A marble statue of the ancient Greek goddess Aphrodite.
+(Cmd) go east
+This door is closed and needs to be opened.
+(Cmd) open east
+The door has been opened. You can now enter with the 'go' command.
+(Cmd) go east
+This is the Living Room - There 2 doors in this room, one west and one north. Item(s) in this room: ['teleporter'].
+(Cmd) take teleporter
+You have added teleporter to your inventory!
+(Cmd) info teleporter
+An unstable device that may have adverse effects if shaken.
+(Cmd) holding
+You have the following item(s) in your inventory: ['key', 'stone', 'teleporter']
+(Cmd) shake
+The teleporter in your inventory is making a loud noise! SpaCE iS cOlLApsiNg iN oN iTSeLF.!;./,
+This is the Library - There are 2 doors in this room, one east and one south. Item(s) in this room: ['carpet'].
+(Cmd) go east
+This is the Kitchen - There are 2 doors in this room, one south and one west. Item(s) in this room: [].
+(Cmd) go south
+This is the Bathroom - There are 3 doors in this room, one west , one north, and one east. Item(s) in this room: ['statue'].
+(Cmd) go east
+This is the Living Room - There 2 doors in this room, one west and one north. Item(s) in this room: [].
+(Cmd) go north
+Use the command 'unlock' with the direction of the door to unlock this door.
+(Cmd) unlock north
+This door has been unlocked!
+You've done it! You found Pikachu!!
+Wa-Wait... something is happening?!
+
+The stone you are carying is starting to glow!
+
+It is a Thunder Stone! It is causing Pikachu to evolve!
+
+Congratulations, your Pikachu has evolved into a Raichu!
+
+                                        _,--""`---...__
+
+                            _.---""""`-'.   .-"""'`-.._`-._
+
+                _,.-----.,-"         .". `-.           "---`.
+
+             _,' _,.-..,'__          `.'  ,-`...._      ,""''`-.
+
+           ,' ,-'     / (  .   ,-.       |    `.  `-._  .       `.
+
+         ,',-"       /   `"    `"'       '      .    _`. \
+
+       ,','       ,-'7--.                 `.__."|   ( ` `j
+
+      '.:--.    ,'   |   .       |\             '    `--'
+
+     /.     | ,'     |   |       `'            .
+
+    '       |',".    |._,'                     `      _.--"""""-._
+
+'.          `-..'    `.                      ,  \  ,-' _.-"""""-. `.
+
+` `                   F  -.                 /    ,' .-'          `  `
+
+ \ `                 j     `.              ,-.   . /               . `
+
+    `.               |     .-`.           .  '-.  V                 . `
+
+  `   `.      .      | .    \  \         j      \/|                  ' .
+
+   .    `.    |`.    |-.`._/`   .        |    ,'  A                  | |
+
+    \     `. F   \   |--`  "._  |        `-.-"   / .                 | |
+
+     \      -'    `. |        `"'                  |                 F '
+
+      \             `+`.                           |                / .
+
+       \              .-`                     .    j               / ,
+
+        \              \   `.               .'    /               ' .
+
+         \       |`._   \    `-.._        ,'    ,'              ,'.'
+
+          '      |   `.  `.       `<`""""'    .'             _,'.'
+
+           `     |     `-. `._      )   `.     .          _.'_.'
+
+            `    |        `--/     /`-._  .     `.___..--'_."
+
+             `   |          /     /._   `""`.     `. _,.-"
+
+              `  |         /     /   `--.....`.     `._
+
+               ` |       ,'     /              .""""'  `.
+
+                `'      , `-..,7                `    . `.`.
+
+                       .       '                 `.   \  `v
+
+                      j.  ,   /                    `.._L_.'
+
+                      || .   /
+
+                      `"-'__/ mh
+
+
+
+
+
+
+(nlp) C:\Users\wk789\Documents\school\UU\advancedprogramming\lab5\PokemonHouse>
