@@ -1,7 +1,7 @@
 #Rooms
 room Kitchen: This is the Kitchen - There are 2 doors in this room, one south and one west.
 room Living: This is the Living Room - There 2 doors in this room, one west and one north.
-room Bathroom: This is the Bathroom - There are 2 doors in this room, one west and one east.
+room Bathroom: This is the Bathroom - There are 3 doors in this room, one west , one north, and one east.
 room Library: This is the Library - There are 2 doors in this room, one east and one south.
 room Bedroom: This is your Bedroom - There are 2 doors in this room, one east and one north.
 room Pantry: You've done it! You found Pikachu!!

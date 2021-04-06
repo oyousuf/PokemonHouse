@@ -1,7 +1,7 @@
 import cmd  # for user input/testing
 import numpy as np  # generate random number from 0-4
 import sys  # to stop the program when you win
-
+import time #to be a drama-queen for the winning messages
 
 class ParseConfig:
     room_num = {}  # format will be: {#number : Room Name}
@@ -10,7 +10,7 @@ class ParseConfig:
     items = {}  # format will be: {item name : [room location, type of item, optional command]} 'MOVE']}
     item_description = {}  # format will be: {item name : item description}
     start_room = 0
-    # door_exits
+
     with open("C:\\Users\\User\\PokemonHouse\\house_description.txt") as file:  # read in house_description file
         for line in file:  # iterate over each line
             if not line.startswith('#') and not line.startswith('\n'):  # exclude parsing of # or new lines
@@ -39,31 +39,22 @@ class ParseConfig:
 
                     line = temp[0]  # everything before item description is in index[0]
                     line = line.split()  # split into list
-                    #                     ['item', 'key', 'Library', 'USE', 'unlock']
-                    #                     ['item', 'carpet', 'Living', 'MOVE']
-                    # item_name = line[1] #save name of item (which is at index[1])
-                    # items[line[1]] =
                     items[line[1]] = line[2:]
-                    # items[line[1]] = [line[2], line[3],  #in dict - name of item is assigned as KEY: list of it's characteristics is VALUE. ex.: 'key': ['Living', 'USE', 'unlock']
-
                     item_description[line[1]] = temp[2].strip()  # store description into dict.
 
                 # to get bedroom as the starting room
                 elif line.startswith('start'):
                     start_room = line.split()[1]
-                    # print(start_room)
 
     # to send inner dict of room name/room description as value of outter dict, which has int as keys
     room_count = 0
     for room in default_room_description:
         room_num[room_count] = room
         room_count += 1
-    #     for key, value in default_room_description.items():
-    #         room_num[room_count] = {key : value}
-    #         room_count += 1
 
     # connect the items to where they are in the rooms
     default_items_in_rooms = {}  # new dict for where items are initially
+
     # go through list of items and if their location name matches a room name then make new dict entry with room name as key and item name as value
     # room description is basically dict of rooms, with room names as keys
     for room in default_room_description:
@@ -75,12 +66,6 @@ class ParseConfig:
                     default_items_in_rooms[room] = temp_list
                 else:
                     default_items_in_rooms[room] = item
-    # for room in doors:
-
-    # now we have: 1) rooms with IDs & their names with descriptions 2) room names with description, 3) doors in each room with possible directions, neighboring rooms, status of door
-    # 4) items with their location, type and optional commands 5) default location of items
-    # print(f'room number - {room_num}\n\ndefault room description - {default_room_description}\n\ndoors - {doors}\n\nitems - {items}\n\ndefault item locations - {default_items_in_rooms}\n\nitem descriptions - {item_description}')
-    print(room_num)
 
 
 class Game(cmd.Cmd):
@@ -92,8 +77,6 @@ class Game(cmd.Cmd):
     # start_room = ParseConfig.start_room
     inventory = []
     location = "Bedroom"
-
-    # count = 0
 
     def __init__(self, room_numbers, default_room_description, doors, items, default_items_in_rooms, item_description):
         cmd.Cmd.__init__(self)
@@ -146,22 +129,15 @@ class Game(cmd.Cmd):
                     self.rooms[room_name] = Rooms(room_name, doors[room_name][0][0], doors[room_name][0][1],
                                                   doors[room_name][0][2],
                                                   default_room_description[room_name])  # passing in room name, doors
-        # self.location = "Bedroom"
-        # print(self.rooms)
-        # print(self.rooms[room_name].name, self.rooms[room_name].door_direction, self.rooms[room_name].next_room, self.rooms[room_name].door_status, self.rooms[room_name].description, self.rooms[room_name].items)
-        # self.location = "Library" #ParseConfig.start_room#"Library"#ParseConfig.start_room
-        # print(len(doors["Bathroom"]))
-        s = " "
+
         print(f"{self.rooms[self.location].description} Item(s) in this room: {self.rooms[self.location].items}.")
 
-    # while True:
     # default command when user inputs an unvalid command
     def default(self, arg):
         print(
             "I do not understand that command. Type 'help' or 'commands' or 'help' for a list of specific commands or general general commands, respectively.")
 
     # MAIN METHODS
-    # no need for if statement to check if user inputted valid command. cmd library will give SyntaxError and the game won't crash
     def do_go(self, args):
         # pseudo-code as a guideline:
         # directions = ['north', 'south', 'east', 'west']
@@ -183,36 +159,23 @@ class Game(cmd.Cmd):
         # else: that's not an exit in this room, show room ---
         # else: that's not a direction, show room ---
 
-        print(self.rooms["Bathroom"].name, self.rooms["Bathroom"].door_direction, self.rooms["Bathroom"].next_room,
-              self.rooms["Bathroom"].door_status, self.rooms["Bathroom"].description, self.rooms["Bathroom"].items)
-        print(self.rooms[self.location].items)
         args = args.lower().strip()
         if args in self.directions:  # if that's a possible direction
-            print("yes1")
             if args in self.rooms[self.location].door_direction:
-                print("yes2")
                 door_index = self.rooms[self.location].door_direction.index(args)
-                print(door_index)
-                print(self.rooms[self.location].door_status[door_index])
                 if self.rooms[self.location].door_status[door_index] == 'open':
-                    print("yes3")
                     self.location = self.rooms[self.location].next_room[door_index]  # update location to next room
                     self.do_show(self.location)  # show description of new room you've just entered
                 elif self.rooms[self.location].door_status[door_index] == 'closed':
-                    print("yes4")
                     print("This door is closed and needs to be opened.")
                 elif self.rooms[self.location].door_status[door_index] == 'locked':
-                    print("yes5")
                     if "key" in self.inventory:
                         print("Use the command 'unlock' with the direction of the door to unlock this door.")
                     else:
-                        print("yes9")
                         print("This door is locked.")
             else:
-                print("yes10")
                 print("That is not a direction in this room.")
         else:
-            print("yes11")
             print("That is not a direction.")
 
     def do_open(self, args):
@@ -226,6 +189,7 @@ class Game(cmd.Cmd):
         # print that door is opened
         # else: that door is locked
         # else: that's not a door in this room
+
         if args in self.rooms[self.location].door_direction:
             door_index = self.rooms[self.location].door_direction.index(args)
             if self.rooms[self.location].door_status[door_index] == 'closed':
@@ -258,6 +222,7 @@ class Game(cmd.Cmd):
         # else: print you can't move that item
         # else: print that isn't an item in this room.
         # else: print that's not an item
+
         if args in self.items:  # if the item is real
             if args in self.rooms[self.location].items:  # if you're in the right room
                 if self.items[args].can_move == True:
@@ -280,6 +245,7 @@ class Game(cmd.Cmd):
         # show new inventory
         # else: print that isn't in your inventory
         # else: print that's not an item
+
         if args in self.items:
             if args in self.inventory:
                 print(f"You dropped the {args} in this room. The room now has the following item(s): ")
@@ -292,18 +258,20 @@ class Game(cmd.Cmd):
         else:
             print("That is not an item.")
 
+    # print out description of room
     def do_show(self, args):
-        # print out description of room
         print(f"{self.rooms[self.location].description} Item(s) in this room: {self.rooms[self.location].items}.")
 
+    # print out inventory if you have anything
     def do_holding(self, args):
-        if self.inventory:  # show your inventory if you have anything
+        if self.inventory:
             print(f"You have the following item(s) in your inventory: {self.inventory}")
         else:  # otherwise print that you don't have anything yet
             print("Nothing in your inventory yet.")
 
+    # quits the game
     def do_quit(self, args):
-        print("Thanks for playing! Come again!")  # end of game
+        print("Thanks for playing! Come again!")
         return True
 
     # this will allow you to teleport to any random room OTHER than the Pantry where Pikachu is.
@@ -317,6 +285,7 @@ class Game(cmd.Cmd):
         else:
             print("You do not have the means for this command... yet.")
 
+    # unlock the door that can't be normally opened
     def do_unlock(self, args):
         args = args.lower().strip()
         # if key is in your inventory
@@ -333,15 +302,25 @@ class Game(cmd.Cmd):
                 print("This door has been unlocked!")
                 if 'stone' in self.inventory:
                     print(self.rooms[
-                              "Pantry"].description + "\nWa-Wait... something is happening?! The stone you are carying is starting to glow! It is a Thunder Stone! It is causing Pikachu to evolve! Congratulations, your Pikachu has evolved into a Raichu!")
+                              "Pantry"].description + "\nWa-Wait... something is happening?!\n")
+                    time.sleep(1.5)
+                    print("The stone you are carying is starting to glow!\n")
+                    time.sleep(1.5)
+                    print("It is a Thunder Stone! It is causing Pikachu to evolve!\n")
+                    time.sleep(2)
+                    print("Congratulations, your Pikachu has evolved into a Raichu!\n")
+                    time.sleep(1.5)
                     sys.exit(0)
                 else:
+                    time.sleep(1.5)
                     print(self.rooms["Pantry"].description)
+                    time.sleep(1.5)
                     sys.exit(0)
         else:
             print("You do not have the means for this command... yet.")
 
-    def do_info(self, args):  # prints info on the item (args)
+    # gives info on an item in the room or in your inventory
+    def do_info(self, args):
         # if args is an item
         # if the item is in your current room or in your inventory
         # else: that's not an item
@@ -353,6 +332,7 @@ class Game(cmd.Cmd):
         else:
             print(f"{args} is not an item.")
 
+    # prints all commands
     def do_commands(self, args):
         args = args.lower().strip()
         # required by assignment
@@ -372,7 +352,8 @@ class Game(cmd.Cmd):
         print("'info ITEM' - provides you with a describe of an item in the room or in your inventory")
 
         # extra 2 commands - that REQUIRE the player to hold an ITEM
-        print("'shake ITEM' - to violently shake *ITEM*, maybe something will happen ;)")  # to activate the teleporter
+        print(
+            "'shake' - to violently shake a certain *ITEM*, maybe something will happen ;)")  # to activate the teleporter
         print("'unlock DIR' - to unlock a specially locked door")  # to use key to open the specially locked door
 
         # movement
@@ -422,3 +403,4 @@ if __name__ == "__main__":
     g = Game(parse.room_num, parse.default_room_description, parse.doors, parse.items, parse.default_items_in_rooms,
              parse.item_description)
     g.cmdloop()
+
